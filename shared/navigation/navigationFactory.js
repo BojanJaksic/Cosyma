@@ -1,8 +1,8 @@
 (function () {
     'use strict';
-    angular.module('cosymaApp').factory('navigationService', navigationService);
+    angular.module('cosymaApp').factory('navigationFactory', navigationFactory);
 
-    function navigationService($http) {
+    function navigationFactory($http) {
 
         var baseWebApiUrl = '/services/';
         var config = {

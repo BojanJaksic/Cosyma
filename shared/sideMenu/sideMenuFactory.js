@@ -1,8 +1,8 @@
 (function () {
     'use strict';
-    angular.module('cosymaApp').factory('sideMenuService', sideMenuService);
+    angular.module('cosymaApp').factory('sideMenuFactory', sideMenuFactory);
 
-    function sideMenuService($http) {
+    function sideMenuFactory($http) {
 
         var baseWebApiUrl = '/services/';
         var config = {

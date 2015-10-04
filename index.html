@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="shared/sideMenu/ceSidemenu.min.css" />
 </head>
 <body>
-<div ng-app="cosymaApp">
+<div ng-app="cosymaApp" ng-controller="MainController">
     <ce-navigation ce-config="{title: 'CoSyMa - v1.0.0'}">
         <ce-app></ce-app>
         <ce-app></ce-app>
@@ -23,7 +23,7 @@
     </ce-navigation>
 
     <ce-sidemenu ce-config="{label: '+', color: '#fda523'}">
-
+        <computer-side-element ng-repeat="computer in computers" computer-data="computer"></computer-side-element>
     </ce-sidemenu>
 
     <div ng-view></div>
@@ -46,8 +46,10 @@
 
 <!-- Custom scripts -->
 <script src="app.js"></script>
+<script src="components/main/mainController.js"></script>
 <script src="components/applications/applicationsController.js"></script>
 <script src="components/modules/modulesController.js"></script>
-
+<script src="shared/computer/computerDirective.js"></script>
+<script src="shared/computer/computerFactory.js"></script>
 </body>
 </html>
