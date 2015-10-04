@@ -1,51 +1,53 @@
 <!doctype html>
-<html ng-app="cosymaApp">
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Daimler - CoSyMa</title>
     <meta name="author" content="cellent AG">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="app/css/lib/bootstrap.min.css" />
-    <link rel="stylesheet" href="app/css/controls/ceNavigation.min.css" />
-    <link rel="stylesheet" href="app/css/controls/ceSidemenu.min.css" />
+    <link rel="stylesheet" href="assets/lib/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="shared/navigation/ceNavigation.min.css" />
+    <link rel="stylesheet" href="shared/sideMenu/ceSidemenu.min.css" />
 </head>
 <body>
-<ce-navigation ce-config="{title: 'CoSyMa - v1.0.0'}">
-    <ce-app></ce-app>
-    <ce-app></ce-app>
-    <ce-app></ce-app>
-    <ce-app></ce-app>
-    <ce-app></ce-app>
-    <ce-app></ce-app>
-    <ce-app></ce-app>
-</ce-navigation>
+<div ng-app="cosymaApp">
+    <ce-navigation ce-config="{title: 'CoSyMa - v1.0.0'}">
+        <ce-app></ce-app>
+        <ce-app></ce-app>
+        <ce-app></ce-app>
+        <ce-app></ce-app>
+        <ce-app></ce-app>
+        <ce-app></ce-app>
+        <ce-app></ce-app>
+    </ce-navigation>
 
-<ce-sidemenu ce-config="{label: '+', color: '#fda523'}">
+    <ce-sidemenu ce-config="{label: '+', color: '#fda523'}">
 
-</ce-sidemenu>
+    </ce-sidemenu>
 
-<div class="view-content" ng-view></div>
+    <div ng-view></div>
+</div>
 
 <!-- TODO// Apply bundling & minification (careful with angular magic strings)-->
 <!-- 3rd party libraries -->
-<script src="app/js/lib/jquery.min.js"></script>
-<script src="app/js/lib/bootstrap.min.js"></script>
-<script src="app/js/lib/angular.min.js"></script>
+<script src="assets/lib/jquery.min.js"></script>
+<script src="assets/lib/bootstrap/bootstrap.min.js"></script>
+<script src="assets/lib/angular/angular.min.js"></script>
 <!--<script src="app/js/lib/angular-animate.min.js"></script>
 <script src="app/js/lib/angular-resource.min.js"></script>-->
-<script src="app/js/lib/angular-route.min.js"></script>
-<script src="app/js/lib/angular-translate.min.js"></script>
-<script src="app/js/lib/angular-translate-loader-partial.min.js"></script>
+<script src="assets/lib/angular/angular-route.min.js"></script>
+<script src="assets/lib/angular/angular-translate.min.js"></script>
+<script src="assets/lib/angular/angular-translate-loader-partial.min.js"></script>
 
 <!-- Controls -->
-<script src="app/js/lib/controls/angular-navigation-min.js"></script>
-<script src="app/js/lib/controls/angular-sidemenu-min.js"></script>
+<script src="shared/navigation/angular-navigation-min.js"></script>
+<script src="shared/sideMenu/angular-sidemenu-min.js"></script>
 
 <!-- Custom scripts -->
-<script src="app/js/app.js"></script>
-<script src="app/controllers/applicationsController.js"></script>
-<script src="app/controllers/modulesController.js"></script>
+<script src="app.js"></script>
+<script src="components/applications/applicationsController.js"></script>
+<script src="components/modules/modulesController.js"></script>
 
 </body>
 </html>
