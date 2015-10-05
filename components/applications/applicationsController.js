@@ -1,9 +1,11 @@
 (function () {
     'use strict';
-    var ApplicationsController = function ($translate, $translatePartialLoader, $scope) {
-        $scope.applications = ['Application 1', 'Application 2', 'Application 3'];
+    var ApplicationsController = function ($translate, $translatePartialLoader, $scope, applicationsFactory) {
         $translatePartialLoader.addPart('applications');
         $translate.refresh();
+
+        $scope.$parent.isApplicationView = true;
+        $scope.applications = applicationsFactory.getApplications();
     };
 
     angular.module('cosymaApp').controller('ApplicationsController', ApplicationsController);

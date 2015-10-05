@@ -1,8 +1,22 @@
-/*ComputerElement.html styling*/
+/*ComputerElement.html*/
 .computer-row {
     padding-bottom: 5px;
     font-size: 16px;
 }
 .computer-row > span {
     height: 20px;
+}
+/* Applications Metro Tiles*/
+.tile {
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: gray;
+    color: white;
+}
+.tile .title {
+    margin-top: 0px;
+    color: dodgerblue;
 }

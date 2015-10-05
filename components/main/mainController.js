@@ -9,13 +9,14 @@
         $scope.modules = modulesFactory.getModules();
 
         // ----- COMPUTERS ----- (inside the side menu)
-        // child controllers should affect these values
+        // other controllers should affect these values
+        $scope.isApplicationView = true;
         $scope.computers = [];
         $scope.selectedComputers = [];
         $scope.isMultiSelect = true;
         $scope.isSearchDisabled = false;
         $scope.addToSelectedComputers = function (computer) {
-            if ($scope.selectedComputers.indexOf(computer) == -1) {
+            if ($scope.selectedComputers.indexOf(computer) === -1) {
                 if (!$scope.isMultiSelect && $scope.selectedComputers.length > 0) {
                     $scope.selectedComputers.push(computer);
                 }

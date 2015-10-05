@@ -1,4 +1,12 @@
-<h1>{{ 'APPLICATIONS_TITLE' | translate }}</h1>
+<!--<a ui-sref="modules">Modules</a>-->
 
-<!--<a href="#/modules">Modules</a>-->
-<a ui-sref="modules">Modules</a>
+<div class="container">
+    <div class="col-sm-4" ng-repeat="application in applications">
+        <a ui-sref="{{application.moduleUrl}}">
+            <div class="tile">
+                <p>{{application.name}}</p>
+                <h1 class="title">{{application.moduleCount}}</h1>
+            </div>
+        </a>
+    </div>
+</div>

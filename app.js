@@ -6,7 +6,6 @@
     var dependencies = ['ui.router', 'pascalprecht.translate', 'angular-sidemenu', 'angular-navigation', 'angularUtils.directives.uiBreadcrumbs'];
     var app = angular.module('cosymaApp', dependencies);
 
-
     app.config(function ($stateProvider, $urlRouterProvider, $translateProvider, $translatePartialLoaderProvider) {
         /**
          * Configure the translate provider to load json translation files from the url template.
@@ -20,21 +19,19 @@
 
         // configure routes
         var viewBase = 'components/';
-        $urlRouterProvider.otherwise('/modules');
+        $urlRouterProvider.otherwise('/applications');
         $stateProvider
             .state('modules', {
                 url: '/modules',
-                controller: 'ModulesController',
+                controller: 'ModulesController as vm',
                 templateUrl: viewBase + 'modules/modules.html',
-                controllerAs: 'vm',
                 crumbDisplayName: 'Modules'
             })
             .state('applications', {
                 url: '/applications',
-                controller: 'ApplicationsController',
+                controller: 'ApplicationsController as vm',
                 templateUrl: viewBase + 'applications/applications.html',
-                controllerAs: 'vm',
-                crumbDisplayName: 'Applications'
+                crumbDisplayName: ''
             });
     });
 }());
