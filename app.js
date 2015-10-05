@@ -3,7 +3,8 @@
     var current_language = window.navigator.userLanguage || window.navigator.language;
     current_language = current_language.indexOf('en') === 0 ? 'en_EN' : 'de_DE';
 
-    var app = angular.module('cosymaApp', ['ui.router', 'pascalprecht.translate', 'angular-sidemenu', 'angular-navigation']);
+    var dependencies = ['ui.router', 'pascalprecht.translate', 'angular-sidemenu', 'angular-navigation', 'angularUtils.directives.uiBreadcrumbs'];
+    var app = angular.module('cosymaApp', dependencies);
 
 
     app.config(function ($stateProvider, $urlRouterProvider, $translateProvider, $translatePartialLoaderProvider) {
@@ -25,13 +26,15 @@
                 url: '/modules',
                 controller: 'ModulesController',
                 templateUrl: viewBase + 'modules/modules.html',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                crumbDisplayName: 'Modules'
             })
             .state('applications', {
                 url: '/applications',
                 controller: 'ApplicationsController',
                 templateUrl: viewBase + 'applications/applications.html',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                crumbDisplayName: 'Applications'
             });
     });
 }());

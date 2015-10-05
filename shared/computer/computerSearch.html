@@ -1,0 +1,29 @@
+<div class="row" style="margin-left: auto">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="computerSearchBox" class="control-label col-md-3">Computer:</label>
+            <div class="col-md-7">
+                <input id="computerSearchBox" name="computerSearchBox" type="text" placeholder="Computer name" class="form-control" ng-model="computersSearchValue" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Options:</label>
+            <div class="col-md-9">
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">Option 1</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">Option 2</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">Option 3</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-9 col-md-offset-3">
+                <button type="button" class="btn btn-sm btn-success" ng-disabled="isSearchDisabled" ng-click="searchComputers(computersSearchValue)">Search</button>
+            </div>
+        </div>
+    </div>
+</div>

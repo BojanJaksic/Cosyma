@@ -4,9 +4,9 @@
 
     function computerFactory($http) {
 
-        var baseWebApiUrl = '/services/';
+        var baseWebApiUrl = 'api/';
         var config = {
-            getComputersUrl: baseWebApiUrl + ''
+            getComputersUrl: baseWebApiUrl + 'ComputerObjects'
         };
 
         return {
@@ -14,10 +14,11 @@
             getComputers : getComputers
         };
 
-        function getComputers() {
-            return [{ id: 1, name: 'Computer 001', online: true },
-                    { id: 2, name: 'Computer 002', online: false }];
-            //return $http.get(config.getComputersUrl);
-        }
+        function getComputers(searchValue) {
+            //return $http.get(config.getComputersUrl, data: { searchValue: searchValue });
+            return [{ id: 1, name: 'CCCSGAC20150907', statusColor: 'green' },
+                    { id: 2, name: 'CCCSGGF20154573', statusColor: 'red' },
+                    { id: 2, name: 'CCCSGAC34654678', statusColor: 'white' }];
+            }
     }
 }());

@@ -9,22 +9,23 @@
     <link rel="stylesheet" href="assets/lib/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="shared/navigation/ceNavigation.min.css" />
     <link rel="stylesheet" href="shared/sideMenu/ceSidemenu.min.css" />
+    <link rel="stylesheet" href="assets/css/app.css" />
 </head>
 <body>
 <div ng-app="cosymaApp" ng-controller="MainController">
     <ce-navigation ce-config="{title: 'CoSyMa - v1.0.0'}">
-        <ce-app></ce-app>
-        <ce-app></ce-app>
-        <ce-app></ce-app>
-        <ce-app></ce-app>
-        <ce-app></ce-app>
-        <ce-app></ce-app>
-        <ce-app></ce-app>
+        <ce-app ng-repeat="module in modules">
+            {{module.name}}
+        </ce-app>
     </ce-navigation>
 
     <ce-sidemenu ce-config="{label: '+', color: '#fda523'}">
+        <computer-search></computer-search>
         <computer-side-element ng-repeat="computer in computers" computer-data="computer"></computer-side-element>
     </ce-sidemenu>
+
+    <ui-breadcrumbs displayname-property="crumbDisplayName" template-url="shared/breadcrumbs/uiBreadcrumbs.tpl.html">
+    </ui-breadcrumbs>
 
     <div ui-view></div>
 </div>
@@ -43,13 +44,16 @@
 <!-- Controls -->
 <script src="shared/navigation/angular-navigation-min.js"></script>
 <script src="shared/sideMenu/angular-sidemenu-min.js"></script>
+<script src="shared/breadcrumbs/uiBreadcrumbs.js"></script>
 
 <!-- Custom scripts -->
 <script src="app.js"></script>
 <script src="components/main/mainController.js"></script>
 <script src="components/applications/applicationsController.js"></script>
 <script src="components/modules/modulesController.js"></script>
-<script src="shared/computer/computerDirective.js"></script>
+<script src="shared/computer/computerElement.js"></script>
 <script src="shared/computer/computerFactory.js"></script>
+<script src="shared/computer/computerSearch.js"></script>
+<script src="components/modules/modulesFactory.js"></script>
 </body>
 </html>
