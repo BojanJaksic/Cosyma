@@ -1,12 +1,12 @@
-<!--<a ui-sref="modules">Modules</a>-->
-
-<div class="container">
-    <div class="col-sm-4" ng-repeat="application in applications">
-        <a ui-sref="{{application.moduleUrl}}">
-            <div class="tile">
-                <p>{{application.name}}</p>
-                <h1 class="title">{{application.moduleCount}}</h1>
-            </div>
-        </a>
+<div class="vertical-center">
+    <div class="container">
+        <div class="col-sm-4" ng-repeat="application in applications">
+            <a ui-sref="applications.modules({applicationId: application.id, applicationName:application.name })">
+                <div class="tile">
+                    <p>{{application.name}}</p>
+                    <h1 class="title">{{application.moduleCount}}</h1>
+                </div>
+            </a>
+        </div>
     </div>
 </div>

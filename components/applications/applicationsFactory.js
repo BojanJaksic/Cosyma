@@ -17,10 +17,10 @@
         function getApplications() {
             //return $http.get(config.getApplicationsUrl);
             return [
-                {name: 'Tenant Management', moduleUrl:'modules', moduleCount: 21},
-                {name: 'OS Deployment', moduleUrl:'modules', moduleCount: 37},
-                {name: 'Maintenance Window Management', moduleUrl:'modules', moduleCount: 5},
-                {name: 'Software Management', moduleUrl:'modules', moduleCount: 12},
-                {name: 'Computer Management', moduleUrl:'modules', moduleCount: 63}];}
+                {id: 1, name: 'Tenant Management', moduleUrl:'modules', moduleCount: 21},
+                {id: 2, name: 'OS Deployment', moduleUrl:'modules', moduleCount: 37},
+                {id: 3, name: 'Maintenance Window Management', moduleUrl:'modules', moduleCount: 5},
+                {id: 4, name: 'Software Management', moduleUrl:'modules', moduleCount: 12},
+                {id: 5, name: 'Computer Management', moduleUrl:'modules', moduleCount: 63}];}
     }
 }());

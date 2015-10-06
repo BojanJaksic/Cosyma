@@ -21,17 +21,30 @@
         var viewBase = 'components/';
         $urlRouterProvider.otherwise('/applications');
         $stateProvider
-            .state('modules', {
-                url: '/modules',
-                controller: 'ModulesController as vm',
-                templateUrl: viewBase + 'modules/modules.html',
-                crumbDisplayName: 'Modules'
-            })
             .state('applications', {
                 url: '/applications',
-                controller: 'ApplicationsController as vm',
-                templateUrl: viewBase + 'applications/applications.html',
-                crumbDisplayName: ''
+                views: {
+                    'main@': {
+                        templateUrl: viewBase + 'applications/applications.html',
+                        controller: 'ApplicationsController'
+                    }
+                },
+                crumbDisplayName: 'Application'
+            })
+            .state('applications.modules', {
+                url: '/:applicationId?applicationName',
+                views: {
+                    'main@': {
+                        templateUrl: viewBase + 'modules/modules.html',
+                        controller: 'ModulesController'
+                    }
+                },
+                crumbDisplayName: '{{ appName }}',
+                resolve: {
+                    appName: function($stateParams) {
+                        return $stateParams.applicationName;
+                    }
+                }
             });
     });
 }());

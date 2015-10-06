@@ -1,7 +1,4 @@
-<h1>{{ 'MODULES_TITLE' | translate }}</h1>
-
-<!--<a href="#/applications">Applications</a>-->
-<a ui-sref="applications">Applications</a>
+<h1>{{applicationName}}</h1>
 <div ng-repeat="module in modules">
-    {{module}}
+    {{module.name}}
 </div>

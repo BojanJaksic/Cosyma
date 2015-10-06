@@ -12,24 +12,32 @@
     <link rel="stylesheet" href="assets/css/app.css" />
 </head>
 <body>
-<div ng-app="cosymaApp" ng-controller="MainController">
-    <ce-navigation ce-config="{title: 'CoSyMa - v1.0.0'}">
-        <ce-app ng-repeat="module in modules">
-            {{module.name}}
-        </ce-app>
-    </ce-navigation>
-
-    <span ng-show="!isApplicationView">
-        <ce-sidemenu ce-config="{label: '+', color: '#fda523'}">
-            <computer-search></computer-search>
-            <computer-side-element ng-repeat="computer in computers" computer-data="computer"></computer-side-element>
-        </ce-sidemenu>
-
-        <ui-breadcrumbs displayname-property="crumbDisplayName" template-url="shared/breadcrumbs/uiBreadcrumbs.tpl.html">
-        </ui-breadcrumbs>
+<div ng-app="cosymaApp">
+    <span ng-controller="NavigationController">
+        <ce-navigation ce-config="{title: 'CoSyMa - v1.0.0'}">
+            <ce-app ng-repeat="application in applications">
+                <a ui-sref="applications.modules({id: application.id})">
+                    {{application.name}}
+                </a>
+            </ce-app>
+        </ce-navigation>
     </span>
 
-    <div ui-view></div>
+    <span ng-controller="MainController">
+        <span ng-show="!isApplicationView">
+            <ce-sidemenu ce-config="{label: '+', color: '#fda523'}">
+                <computer-search></computer-search>
+                <computer-side-element ng-repeat="computer in computers" computer-data="computer"></computer-side-element>
+            </ce-sidemenu>
+        </span>
+
+        <span ng-show="!isApplicationView">
+            <ui-breadcrumbs displayname-property="crumbDisplayName" template-url="shared/breadcrumbs/uiBreadcrumbs.tpl.html">
+            </ui-breadcrumbs>
+        </span>
+
+        <div ui-view="main"></div>
+    </span>
 </div>
 
 <!-- TODO// Apply bundling & minification (careful with angular magic strings)-->
@@ -51,6 +59,7 @@
 <!-- Custom scripts -->
 <script src="app.js"></script>
 <script src="components/main/mainController.js"></script>
+<script src="shared/navigation/navigationController.js"></script>
 <script src="components/applications/applicationsController.js"></script>
 <script src="components/applications/applicationsFactory.js"></script>
 <script src="components/modules/modulesController.js"></script>

@@ -6,19 +6,32 @@
 
         var baseWebApiUrl = 'api/';
         var config = {
-            getModulesUrl: baseWebApiUrl + 'ModuleObjects'
+            getModuleBaseInfoUrl: baseWebApiUrl + 'GetModuleObjectsBaseInfo',
+            getModuleUrl: baseWebApiUrl + 'GetModuleObject'
         };
 
         return {
             // define api for our service
-            getModules : getModules
+            getModulesBaseInfo: getModulesBaseInfo,
+            getModule: getModule
         };
 
-        function getModules() {
-            //return $http.get(config.getModulesUrl);
+        function getModulesBaseInfo(applicationId) {
+            //return $http.get(config.getModulesBaseInfo, data{ applicationId: applicationId});
             return [{ id: 1, name: 'Module 1' },
-                    { id: 1, name: 'Module 2' },
-                    { id: 1, name: 'Module 3' }];
-            }
+                    { id: 2, name: 'Module 2' },
+                    { id: 3, name: 'Module 3' }];
+        }
+
+        function getModule(moduleId) {
+            //return $http.get(config.getModuleUrl, data{ moduleId: moduleId});
+            var module = null;
+            angular.forEach(getModulesBaseInfo(1), function($module) {
+                if ($module.id === id) {
+                    module = $module;
+                }
+            });
+            return module;
+        }
     }
 }());
