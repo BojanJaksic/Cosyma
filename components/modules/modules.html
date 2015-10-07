@@ -7,12 +7,11 @@
         </div>
     </div>
     <div class="col-md-4">
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="module in modules" ng-class="{last: active}">
-                <a href="#">{{module.name}}</a>
-                <span class="badge"/><span class="glyphicon glyphicon-align-right glyphicon-arrow-right"></span>
+        <div class="list-group">
+            <li class="list-group-item" ng-repeat="module in modules">
+                <a href="#" class="list-group-item"><span>{{module.name}}</span><span class="badge">&gt;</span></a>
             </li>
-        </ul>
+        </div>
     </div>
     <div class="col-md-6 text-center">
         <h1>{{modules[0].name}} of {{applicationName}}</h1>

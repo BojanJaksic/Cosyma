@@ -17,7 +17,8 @@
     <span ng-controller="NavigationController">
         <ce-navigation ce-config="{title: 'CoSyMa - v1.0.0'}">
             <ce-app class="ce-container" ng-repeat="application in applications">
-                <a ui-sref="applications.modules({applicationId: application.id, applicationName:application.name})">
+                <a ng-click="$parent.$parent.$parent.isNavigationClosed = !$parent.$parent.$parent.isNavigationClosed"
+                   ui-sref="applications.modules({applicationId: application.id, applicationName:application.name})">
                     <p>{{application.name}}</p>
                 </a>
             </ce-app>
