@@ -1,4 +1,13 @@
-<h1>{{applicationName}}</h1>
-<div ng-repeat="module in modules">
-    {{module.name}}
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="module in modules" ng-class="{last: active}">
+                <a href="#">{{module.name}}</a>
+                <span class="badge"/><span class="glyphicon glyphicon-align-right glyphicon-arrow-right"></span>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-8 text-center">
+        <h1>{{modules[0].name}} of {{applicationName}}</h1>
+    </div>
 </div>

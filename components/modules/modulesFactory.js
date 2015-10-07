@@ -18,7 +18,7 @@
 
         function getModulesBaseInfo(applicationId) {
             //return $http.get(config.getModulesBaseInfo, data{ applicationId: applicationId});
-            return [{ id: 1, name: 'Module 1' },
+            return [{ id: 1, name: 'Status' },
                     { id: 2, name: 'Module 2' },
                     { id: 3, name: 'Module 3' }];
         }

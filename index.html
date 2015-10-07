@@ -10,21 +10,22 @@
     <link rel="stylesheet" href="shared/navigation/ceNavigation.min.css" />
     <link rel="stylesheet" href="shared/sideMenu/ceSidemenu.min.css" />
     <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" href="assets/lib/winjs/ui-light.min.css" />
 </head>
 <body>
 <div ng-app="cosymaApp">
     <span ng-controller="NavigationController">
         <ce-navigation ce-config="{title: 'CoSyMa - v1.0.0'}">
-            <ce-app ng-repeat="application in applications">
-                <a ui-sref="applications.modules({id: application.id})">
-                    {{application.name}}
+            <ce-app class="ce-container" ng-repeat="application in applications">
+                <a ui-sref="applications.modules({applicationId: application.id, applicationName:application.name})">
+                    <p>{{application.name}}</p>
                 </a>
             </ce-app>
         </ce-navigation>
     </span>
 
     <span>
-        <span ng-show="!isApplicationView">
+        <span ng-show="!isApplicationView" ng-controller="ComputerController">
             <ce-sidemenu ce-config="{label: '+', color: '#fda523'}">
                 <computer-search></computer-search>
                 <computer-side-element ng-repeat="computer in computers" computer-data="computer"></computer-side-element>
@@ -32,8 +33,7 @@
         </span>
 
         <span ng-show="!isApplicationView">
-            <ui-breadcrumbs displayname-property="crumbDisplayName" template-url="shared/breadcrumbs/uiBreadcrumbs.tpl.html">
-            </ui-breadcrumbs>
+            <ui-breadcrumbs displayname-property="crumbDisplayName" template-url="shared/breadcrumbs/uiBreadcrumbs.tpl.html"></ui-breadcrumbs>
         </span>
 
         <div ui-view="main"></div>
@@ -50,6 +50,9 @@
 <script src="assets/lib/angular/angular-ui-router.min.js"></script>
 <script src="assets/lib/angular/angular-translate.min.js"></script>
 <script src="assets/lib/angular/angular-translate-loader-partial.min.js"></script>
+<script src="assets/lib/winjs/base.min.js"></script>
+<script src="assets/lib/winjs/ui.min.js"></script>
+<script src="assets/lib/winjs/angular-winjs.js"></script>
 
 <!-- Controls -->
 <script src="shared/navigation/angular-navigation-min.js"></script>
@@ -58,13 +61,13 @@
 
 <!-- Custom scripts -->
 <script src="app.js"></script>
-<script src="components/main/mainController.js"></script>
 <script src="shared/navigation/navigationController.js"></script>
 <script src="components/applications/applicationsController.js"></script>
 <script src="components/applications/applicationsFactory.js"></script>
 <script src="components/modules/modulesController.js"></script>
 <script src="shared/computer/computerElement.js"></script>
 <script src="shared/computer/computerFactory.js"></script>
+<script src="shared/computer/computerController.js"></script>
 <script src="shared/computer/computerSearch.js"></script>
 <script src="components/modules/modulesFactory.js"></script>
 </body>
