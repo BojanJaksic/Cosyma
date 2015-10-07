@@ -3,7 +3,7 @@
     var current_language = window.navigator.userLanguage || window.navigator.language;
     current_language = current_language.indexOf('en') === 0 ? 'en_EN' : 'de_DE';
 
-    var dependencies = ['ui.router', 'pascalprecht.translate', 'angular-sidemenu', 'angular-navigation', 'angularUtils.directives.uiBreadcrumbs', 'winjs'];
+    var dependencies = ['ui.router', 'pascalprecht.translate', 'angular-sidemenu', 'angular-navigation', 'angularUtils.directives.uiBreadcrumbs'];
     var app = angular.module('cosymaApp', dependencies);
 
     app.config(function ($stateProvider, $urlRouterProvider, $translateProvider, $translatePartialLoaderProvider) {
@@ -32,20 +32,46 @@
                 crumbDisplayName: 'Application'
             })
             .state('applications.modules', {
-                url: '/:applicationId?applicationName',
+                url: '/:applicationName/modules',
                 views: {
                     'main@': {
                         templateUrl: viewBase + 'modules/modules.html',
                         controller: 'ModulesController'
+                    },
+                    'module@applications.modules': {
+                        templateUrl: viewBase + 'modules/module.html',
+                        controller: 'ModuleController'
                     }
                 },
                 crumbDisplayName: '{{ appName }}',
                 resolve: {
                     appName: function($stateParams) {
                         return $stateParams.applicationName;
+                    },
+                    applicationId: function($stateParams) {
+                        return $stateParams.applicationId;
                     }
                 }
-            });
+            })
+            /*.state('applications.modules.module', {
+                url: '/:moduleId?moduleName',
+                views: {
+                    'module@': {
+                        templateUrl: viewBase + 'modules/module.html',
+                        controller: 'ModuleController'
+                    }
+                },
+                crumbDisplayName: '{{ modName }}',
+                resolve: {
+                    modName: function($stateParams) {
+                        return $stateParams.moduleName;
+                    },
+                    moduleId: function($stateParams) {
+                        return $stateParams.moduleId;
+                    }
+                }
+            }
+        )*/;
     });
 }());
 

@@ -1,19 +1,14 @@
-<div class="row container">
-    <div class="col-md-1 hidden-sm" style="height: 100vh; background: #3C3F41; margin-left: 15px;">
-        <div ng-repeat="application in applications" style="background: gray; height: 50px; margin-top: 10px;">
-            <a ui-sref="applications.modules({applicationId: application.id, applicationName:application.name})">
-                <span ng-repeat="an in application.name.split(' ')">{{ an | limitTo:1 | uppercase }}</span>
-            </a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="list-group">
-            <li class="list-group-item" ng-repeat="module in modules">
-                <a href="#" class="list-group-item"><span>{{module.name}}</span><span class="badge">&gt;</span></a>
+<div class="row">
+    <div class="col-md-2" style="height: 100vh;">
+        <ul class="sidebar darcula no-responsive-future" ng-class="{'compact': isSideBarClosed}" ng-mouseenter="isSideBarClosed=false" ng-mouseleave="isSideBarClosed=true">
+            <li style="text-align: center;" ng-repeat="module in modules" ng-click="selectModule($event)">
+                <a ui-sref="applications.modules({moduleId: module.id, moduleName: module.name})">
+                    <span class="icon">{{module.shortName}}</span>
+                    <span class="title">{{module.name}}</span>
+                    <span class="counter"></span>
+                </a>
             </li>
-        </div>
+        </ul>
     </div>
-    <div class="col-md-6 text-center">
-        <h1>{{modules[0].name}} of {{applicationName}}</h1>
-    </div>
+    <div class="col-md-8" ui-view="module"></div>
 </div>

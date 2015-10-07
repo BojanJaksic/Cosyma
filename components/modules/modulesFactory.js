@@ -18,16 +18,16 @@
 
         function getModulesBaseInfo(applicationId) {
             //return $http.get(config.getModulesBaseInfo, data{ applicationId: applicationId});
-            return [{ id: 1, name: 'Status' },
-                    { id: 2, name: 'Module 2' },
-                    { id: 3, name: 'Module 3' }];
+            return [{ id: 1, name: 'Module 1', shortName: 'ST', someProperty1: 'property A', someProperty2: 'property b' },
+                    { id: 2, name: 'Module 2', shortName: 'M2', someProperty1: 'property c', someProperty2: 'property d' },
+                    { id: 3, name: 'Module 3', shortName: 'M3', someProperty1: 'property e', someProperty2: 'property f' }];
         }
 
         function getModule(moduleId) {
             //return $http.get(config.getModuleUrl, data{ moduleId: moduleId});
             var module = null;
             angular.forEach(getModulesBaseInfo(1), function($module) {
-                if ($module.id === id) {
+                if ($module.id === moduleId) {
                     module = $module;
                 }
             });

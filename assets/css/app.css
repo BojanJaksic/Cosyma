@@ -13,7 +13,7 @@
     box-sizing: border-box;
     padding: 20px;
     margin-bottom: 30px;
-    background: gray;
+    background: gray !important;
     color: white;
 }
 .tile .title {
