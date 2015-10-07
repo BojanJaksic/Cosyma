@@ -1,4 +1,11 @@
-<div class="row">
+<div class="row container">
+    <div class="col-md-1 hidden-sm" style="height: 100vh; background: #3C3F41; margin-left: 15px;">
+        <div ng-repeat="application in applications" style="background: gray; height: 50px; margin-top: 10px;">
+            <a ui-sref="applications.modules({applicationId: application.id, applicationName:application.name})">
+                <span ng-repeat="an in application.name.split(' ')">{{ an | limitTo:1 | uppercase }}</span>
+            </a>
+        </div>
+    </div>
     <div class="col-md-4">
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="module in modules" ng-class="{last: active}">
@@ -7,7 +14,7 @@
             </li>
         </ul>
     </div>
-    <div class="col-md-8 text-center">
+    <div class="col-md-6 text-center">
         <h1>{{modules[0].name}} of {{applicationName}}</h1>
     </div>
 </div>
