@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CoSyMaWebUI>
+    <Applications>
+        <Application Name="ComputerManagement (ResourceKey)" SecGroup="CompMgmtADGroup" Icon="Comp.png" Description="Manage Computer Objects - (ResourceKey)" MobileCapable="false">
+            <Modules>
+                <Module Name="DeleteSystem (ResourceKey)" SecGroup="DelSystemADGroup" Icon="DelSystem.png" Description="Delete one or more Systems - (ResourceKey)" />
+                <Module Name="CreateSystem (ResourceKey)" SecGroup="CreateSystemADGroup" Icon="CreateSystem.png" Description="Create one Systems - (ResourceKey)" />
+                <ScriptReference ReferenceID="2" />
+            </Modules>
+        </Application>
+
+        <Application Name="App2" SecGroup="SecGroupApp2">
+            <!--
+            .
+            .
+            .
+            -->
+        </Application>
+
+        <!-- The default custom script configuration section -->
+        <Application Name="CustomScriptApp" SecGroup="CustomScriptAppADGroup" Icon="CScriptApp.png" Description="Run Custom Powershell Scripts on targeted systems" MobileCapable="true">
+            <Modules>
+                <Module Name="Inventoy Actions" SecGroup="CustInvActADGroup" Icon="CustScript.png" Description="Group Cust Inv Actions">
+                    <ScriptReferences>
+                        <ScriptReference ReferenceID="1" />
+                    </ScriptReferences>
+                </Module>
+                <Module Name="System Actions" SecGroup="SysActADGroup" Icon="CustScript.png" Description="Group System Actions">
+                    <ScriptReferences>
+                        <ScriptReference ReferenceID="2" />
+                        <ScriptReference ReferenceID="3" />
+                    </ScriptReferences>
+                </Module>
+            </Modules>
+        </Application>
+        <!--
+        .
+        .
+        .
+        -->
+    </Applications>
+
+    <!-- Script definition section -->
+    <Scripts>
+        <Script ID="1" Name="PowerShellScript1" SecGroup="PSScript1ADGroup" Icon="PS1.png" Description="Script 1 Description" Action="PowerShell">
+            <Parameters>
+                <Param Name="Param1" Type="String" MaxLength="5">
+                    <ValidationRule>
+                        <RegEx>/^[a-zA-Z]{5}$/</RegEx>
+                    </ValidationRule>
+                </Param>
+                <Param Name="Param2" Type="Bool">
+                    <ValidationRule />
+                </Param>
+            </Parameters>
+        </Script>
+        <Script ID="2" Name="Reboot" SecGroup="RebootADGroup" Description="Reboot Description" Action="PowerShell" Icon="Reboot.png">
+            <Parameters>
+                <Param Name="SystemName" Type="String" MaxLength="15">
+                    <ValidationRule>
+                        <RegEx>/^[a-zA-Z]{15}$/</RegEx>
+                    </ValidationRule>
+                </Param>
+            </Parameters>
+        </Script>
+        <Script ID="3" Name="Shutdown" SecGroup="ShutDownADGroup" Description="Shutdown Description" Action="PowerShell" Icon="Shutdown.png">
+            <Parameters>
+                <Param Name="SystemName" Type="String" MaxLength="15">
+                    <ValidationRule>
+                        <RegEx>/^[a-zA-Z]{15}$/</RegEx>
+                    </ValidationRule>
+                </Param>
+            </Parameters>
+        </Script>
+    </Scripts>
+</CoSyMaWebUI>

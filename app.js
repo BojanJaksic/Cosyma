@@ -37,10 +37,6 @@
                     'main@': {
                         templateUrl: viewBase + 'modules/modules.html',
                         controller: 'ModulesController'
-                    },
-                    'module@applications.modules': {
-                        templateUrl: viewBase + 'modules/module.html',
-                        controller: 'ModuleController'
                     }
                 },
                 crumbDisplayName: '{{ appName }}',
@@ -52,26 +48,7 @@
                         return $stateParams.applicationId;
                     }
                 }
-            })
-            /*.state('applications.modules.module', {
-                url: '/:moduleId?moduleName',
-                views: {
-                    'module@': {
-                        templateUrl: viewBase + 'modules/module.html',
-                        controller: 'ModuleController'
-                    }
-                },
-                crumbDisplayName: '{{ modName }}',
-                resolve: {
-                    modName: function($stateParams) {
-                        return $stateParams.moduleName;
-                    },
-                    moduleId: function($stateParams) {
-                        return $stateParams.moduleId;
-                    }
-                }
-            }
-        )*/;
+            });
     });
 }());
 

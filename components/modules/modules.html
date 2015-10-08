@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-2" style="height: 100vh;">
         <ul class="sidebar darcula no-responsive-future" ng-class="{'compact': isSideBarClosed}" ng-mouseenter="isSideBarClosed=false" ng-mouseleave="isSideBarClosed=true">
-            <li style="text-align: center;" ng-repeat="module in modules" ng-click="selectModule($event)">
-                <a ui-sref="applications.modules({moduleId: module.id, moduleName: module.name})">
+            <li style="text-align: center;" ng-repeat="module in modules" ng-click="selectModule($event, module, $scope)">
+                <a href="#">
                     <span class="icon">{{module.shortName}}</span>
                     <span class="title">{{module.name}}</span>
                     <span class="counter"></span>
@@ -10,5 +10,15 @@
             </li>
         </ul>
     </div>
-    <div class="col-md-8" ui-view="module"></div>
+    <div class="col-md-8">
+        {{selectedModule.name}}
+        <br/>
+        {{selectedModule.shortName}}
+        <br/>
+        {{selectedModule.someProperty1}}
+        <br/>
+        {{selectedModule.someProperty2}}
+        <br/>
+    </div>
+
 </div>
