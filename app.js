@@ -3,10 +3,33 @@
     var current_language = window.navigator.userLanguage || window.navigator.language;
     current_language = current_language.indexOf('en') === 0 ? 'en_EN' : 'de_DE';
 
+    // Create the module
     var dependencies = ['ui.router', 'pascalprecht.translate', 'angular-sidemenu', 'angular-navigation', 'angularUtils.directives.uiBreadcrumbs'];
     var app = angular.module('cosymaApp', dependencies);
 
-    app.config(function ($stateProvider, $urlRouterProvider, $translateProvider, $translatePartialLoaderProvider) {
+    /*
+    * Load WebUI_Structure.xml and pass it on to the Web Api
+    * */
+    deferredBootstrapper.bootstrap({
+        element: document.body,
+        module: 'cosymaApp',
+        resolve: {
+            APP_CONFIG: ['$http', function ($http) {
+                return $http.get('assets/static/WebUI_Structure.xml')
+                        .then (function (response) {//https://api.myjson.com/bins/2tpsa
+                            return $http.post('api/getNavigation', response.data, {
+                                headers: { 'Accept': 'application/json', 'Content-Type': 'application/xml' }
+                            });
+                        })
+                        .catch(function(response) {
+                            console.error('Error', response.status, response.data);
+                            return {};
+                        });
+            }]
+        }
+    });
+
+    app.config(function ($stateProvider, $urlRouterProvider, $translateProvider, $translatePartialLoaderProvider, APP_CONFIG) {
         /**
          * Configure the translate provider to load json translation files from the url template.
          * Observe the server folder structure: 'app/translations/{lang}/{part}.json'

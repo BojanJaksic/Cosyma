@@ -1,3 +1,6 @@
 {
-  "MODULES_TITLE": "Modules"
+  "module.name": "Module name",
+  "module.shortName": "Module short name",
+  "module.someProperty1": "Property 1",
+  "module.someProperty2": "Property 2"
 }

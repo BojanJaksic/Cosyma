@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/lib/metro/metro-schemes.min.css" />
 </head>
 <body>
-<div ng-app="cosymaApp">
+<div>
     <span ng-controller="NavigationController">
         <ce-navigation ce-config="{title: 'CoSyMa - v1.0.0'}">
             <ce-app class="ce-container" ng-repeat="application in applications">
@@ -50,6 +50,7 @@
 <script src="assets/lib/angular/angular-ui-router.min.js"></script>
 <script src="assets/lib/angular/angular-translate.min.js"></script>
 <script src="assets/lib/angular/angular-translate-loader-partial.min.js"></script>
+<script src="assets/lib/deferred-bootstrap.js"></script>
 
 <!-- Controls -->
 <script src="shared/navigation/angular-navigation-min.js"></script>

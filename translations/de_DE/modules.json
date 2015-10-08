@@ -1,3 +1,6 @@
 {
-  "MODULES_TITLE": "Modules_de"
+"module.name": "Modul Name",
+"module.shortName": "Modul Kürze Name",
+"module.someProperty1": "Merkmal 1",
+"module.someProperty2": "Merkmal 2"
 }
