@@ -1,6 +1,16 @@
 {
-"module.name": "Modul Name",
-"module.shortName": "Modul Kürze Name",
-"module.someProperty1": "Merkmal 1",
-"module.someProperty2": "Merkmal 2"
+  "app.general.module.status.name": "Status",
+  "app.general.module.status.short": "ST",
+  "app.inv.app.module.status.desc": "Status module of the Inventory Solution",
+  "app.inv.app.module.main.name": "Inventory",
+  "app.inv.app.module.main.short": "IN",
+  "app.inv.app.module.main.desc": "Main module of the Inventory Solution",
+  "app.soft.mngmt.module.status.desc": "Status module of the Software Management Solution",
+  "app.soft.mngmt.module.main.name": "Software Management",
+  "app.soft.mngmt.module.main.short": "SM",
+  "app.soft.mngmt.module.main.desc": "Main module of the Software Management Solution",
+  "app.comp.mngmt.module.status.desc": "Status module of the Computer Management Solution",
+  "app.comp.mngmt.module.main.name": "Computer Management",
+  "app.comp.mngmt.module.main.short": "CM",
+  "app.comp.mngmt.module.main.desc": "Main module of the Computer Management Solution"
 }

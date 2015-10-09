@@ -1,50 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoSyMaWebUI>
+    <!-- Resource Keys -->
+        <!-- app.general.module.status.name: Status -->
+        <!-- app.general.module.status.short: ST -->
+    <!-- Images -->
+        <!-- generalModuleStatus.png -->
     <Applications>
-        <Application Name="ComputerManagement (ResourceKey)" SecGroup="CompMgmtADGroup" Icon="Comp.png" Description="Manage Computer Objects - (ResourceKey)" MobileCapable="false">
+        <!-- Resource Keys -->
+            <!-- Application -->
+                <!-- app.inv.app.name: Inventory Solution -->
+                <!-- app.inv.app.desc: Inventory Solution (unused property!?)-->
+            <!-- Modules -->
+                <!-- Status -->
+                    <!-- app.inv.app.module.status.desc: Status module of the Inventory Solution (unused property!?)-->
+                <!-- Main -->
+                    <!-- app.inv.app.module.main.name: Inventory -->
+                    <!-- app.inv.app.module.main.short: IN -->
+                    <!-- app.inv.app.module.main.desc: Main module of the Inventory Solution (unused property!?)-->
+        <!-- Images -->
+            <!-- invApp.png -->
+            <!-- moduleInvMain.png -->
+        <Application Id="" Name="app.inv.app.name" SecGroup="InvAppADGroup" Icon="invApp.png" Description="app.inv.app.desc" MobileCapable="true">
+            <!-- CanSelectCompNr: 0= cannot select at all; 1=can select exactly one; x(any other number)=max number of selectable computers -->
+            <!-- AfterFinishCollapse: After finish btn is clicked collapse search computer control -->
+            <!-- AfterFinishShowOnlySelected: After finish remove from the list, computers that are not selected -->
+            <ComputerSelection CanSelectCompNr="1" AfterFinishCollapse="false" AfterFinishShowOnlySelected="false"/>
             <Modules>
-                <Module Name="DeleteSystem (ResourceKey)" SecGroup="DelSystemADGroup" Icon="DelSystem.png" Description="Delete one or more Systems - (ResourceKey)" />
-                <Module Name="CreateSystem (ResourceKey)" SecGroup="CreateSystemADGroup" Icon="CreateSystem.png" Description="Create one Systems - (ResourceKey)" />
-                <ScriptReference ReferenceID="2" />
+                <!-- For status we do not need a security group, it is always present, even required. -->
+                <Module Id="2" Name="app.general.module.status.name" SecGroup="*" Initials="app.general.module.status.short" ViewPath="inventory/status.html" Icon="generalModuleStatus.png" Description="app.inv.app.module.status.desc">
+                    <ScriptReferences></ScriptReferences>
+                </Module>
+                <Module Id="2" Name="app.inv.app.module.main.name" SecGroup="InvAppMainADGroup" Initials="app.inv.app.module.main.short" ViewPath="inventory/main.html" Icon="moduleInvMain.png" Description="app.inv.app.module.main.desc">
+                    <ScriptReferences></ScriptReferences>
+                </Module>
             </Modules>
         </Application>
-
-        <Application Name="App2" SecGroup="SecGroupApp2">
-            <!--
-            .
-            .
-            .
-            -->
-        </Application>
-
-        <!-- The default custom script configuration section -->
-        <Application Name="CustomScriptApp" SecGroup="CustomScriptAppADGroup" Icon="CScriptApp.png" Description="Run Custom Powershell Scripts on targeted systems" MobileCapable="true">
+        <!-- Resource Keys -->
+            <!-- Application -->
+                <!-- app.soft.mngmt.name: Software Management Solution -->
+                <!-- app.soft.mngmt.desc: Software Management Solution (unused property!?)-->
+            <!-- Modules -->
+                <!-- Status -->
+                    <!-- app.soft.mngmt.module.status.desc: Status module of the Software Management Solution (unused property!?)-->
+                <!-- Main -->
+                    <!-- app.soft.mngmt.module.main.name: Software Management -->
+                    <!-- app.soft.mngmt.module.main.short: SM -->
+                    <!-- app.soft.mngmt.module.main.desc: Main module of the Software Management Solution (unused property!?)-->
+        <!-- Images -->
+            <!-- softMngmtApp.png -->
+            <!-- moduleSoftMngmtMain.png -->
+        <Application Name="app.soft.mngmt.name" SecGroup="SoftMgmtADGroup" Icon="softMngmtApp.png" Description="app.soft.mngmt.desc" MobileCapable="true">
+            <!-- CanSelectCompNr: 0= cannot select at all; 1=can select exactly one; x(any other number)=max number of selectable computers -->
+            <!-- AfterFinishCollapse: After finish btn is clicked collapse search computer control -->
+            <!-- AfterFinishShowOnlySelected: After finish remove from the list, computers that are not selected -->
+            <ComputerSelection CanSelectCompNr="10" AfterFinishCollapse="true" AfterFinishShowOnlySelected="true"/><ComputerSelection CanSelectCompNr="2" AfterFinishCollapse="true" AfterFinishShowOnlySelected="false"/>
             <Modules>
-                <Module Name="Inventoy Actions" SecGroup="CustInvActADGroup" Icon="CustScript.png" Description="Group Cust Inv Actions">
+                <!-- For status we do not need a security group, it is always present, even required. -->
+                <Module Name="app.general.module.status.name" SecGroup="*" Initials="app.general.module.status.short" ViewPath="softwareManagement/status.html" Icon="generalModuleStatus.png" Description="app.soft.mngmt.module.status.desc">
+                    <ScriptReferences></ScriptReferences>
+                </Module>
+
+                <Module Name="app.soft.mngmt.module.main.name" SecGroup="SoftMngmtMainADGroup" Initials="app.soft.mngmt.module.main.short" ViewPath="softwareManagement/main.html" Icon="moduleSoftMngmtMain.png" Description="app.soft.mngmt.module.main.desc">
+                    <ScriptReferences></ScriptReferences>
+                </Module>
+            </Modules>
+        </Application>
+        <!-- Resource Keys -->
+            <!-- Application -->
+                <!-- app.comp.mngmt.name: Computer Management Solution -->
+                <!-- app.comp.mngmt.desc: Computer Management Solution (unused property!?)-->
+            <!-- Modules -->
+                <!-- Status -->
+                    <!-- app.comp.mngmt.module.status.desc: Status module of the Computer Management Solution (unused property!?)-->
+                <!-- Main -->
+                    <!-- app.comp.mngmt.module.main.name: Computer Management -->
+                    <!-- app.comp.mngmt.module.main.short: CM -->
+                    <!-- app.comp.mngmt.module.main.desc: Main module of the Computer Management Solution (unused property!?)-->
+        <!-- Images -->
+            <!-- compMngmtApp.png -->
+            <!-- moduleCompMngmtMain.png -->
+        <Application Name="app.comp.mngmt.name" SecGroup="CompMgmtADGroup" Icon="compMngmtApp.png" Description="app.comp.mngmt.desc" MobileCapable="true">
+            <!-- CanSelectCompNr: 0= cannot select at all; 1=can select exactly one; x(any other number)=max number of selectable computers -->
+            <!-- AfterFinishCollapse: After finish btn is clicked collapse search computer control -->
+            <!-- AfterFinishShowOnlySelected: After finish remove from the list, computers that are not selected -->
+            <ComputerSelection CanSelectCompNr="1" AfterFinishCollapse="false" AfterFinishShowOnlySelected="false"/>
+            <Modules>
+                <Module Name="app.general.module.status.name" SecGroup="*" Initials="app.general.module.status.short" ViewPath="computerManagement/status.html" Icon="generalModuleStatus.png" Description="app.comp.mngmt.module.status.desc">
                     <ScriptReferences>
                         <ScriptReference ReferenceID="1" />
                     </ScriptReferences>
                 </Module>
-                <Module Name="System Actions" SecGroup="SysActADGroup" Icon="CustScript.png" Description="Group System Actions">
-                    <ScriptReferences>
-                        <ScriptReference ReferenceID="2" />
-                        <ScriptReference ReferenceID="3" />
-                    </ScriptReferences>
+                <Module Name="app.comp.mngmt.module.main.name" SecGroup="CompMgmtMainADGroup" ViewPath="computerManagement/main.html" Icon="moduleCompMngmtMain.png" Description="app.comp.mngmt.module.main.desc">
+                    <ScriptReferences></ScriptReferences>
                 </Module>
             </Modules>
         </Application>
-        <!--
-        .
-        .
-        .
-        -->
+        <!-- Resource Keys -->
+            <!-- Application -->
+                <!-- app.wind.maint.name: Windows Maintenance Solution -->
+                <!-- app.wind.maint.desc: Windows Maintenance Solution (unused property!?)-->
+            <!-- Modules -->
+                <!-- Status -->
+                    <!-- app.wind.maint.module.status.desc: Status module of the Windows Maintenance Solution (unused property!?)-->
+                <!-- Main -->
+                    <!-- app.wind.maint.module.main.name: Windows Maintenance -->
+                    <!-- app.wind.maint.module.main.short: WM -->
+                    <!-- app.wind.maint.module.main.desc: Main module of the Windows Maintenance Solution (unused property!?)-->
+        <!-- Images -->
+            <!-- windMaintApp.png -->
+            <!-- moduleWindMaintMain.png -->
+        <Application Name="app.wind.maint.name" SecGroup="WindMaintADGroup" Icon="windMaintApp.png" Description="app.wind.maint.desc" MobileCapable="false">
+            <!-- CanSelectCompNr: 0= cannot select at all; 1=can select exactly one; x(any other number)=max number of selectable computers -->
+            <!-- AfterFinishCollapse: After finish btn is clicked collapse search computer control -->
+            <!-- AfterFinishShowOnlySelected: After finish remove from the list, computers that are not selected -->
+            <ComputerSelection CanSelectCompNr="30" AfterFinishCollapse="true" AfterFinishShowOnlySelected="true"/>
+            <Modules>
+                <Module Name="app.general.module.status.name" SecGroup="*" Initials="app.general.module.status.short" ViewPath="windowsMaintenance/status.html" Icon="generalModuleStatus.png" Description="app.wind.maint.module.status.desc">
+                    <ScriptReferences></ScriptReferences>
+                </Module>
+                <Module Name="app.wind.maint.module.main.name" SecGroup="WindMaintMainADGroup" ViewPath="windowsMaintenance/main.html" Icon="moduleWindMaintMain.png" Description="app.wind.maint.module.main.desc">
+                    <ScriptReferences></ScriptReferences>
+                </Module>
+            </Modules>
+        </Application>
+        <!--<Application>
+            TODO: Phase 2 - Operating System Deployment Solution
+        </Application>
+        <Application>
+            TODO: Phase 2 - Software Rollout Solution
+        </Application>-->
     </Applications>
-
     <!-- Script definition section -->
     <Scripts>
         <Script ID="1" Name="PowerShellScript1" SecGroup="PSScript1ADGroup" Icon="PS1.png" Description="Script 1 Description" Action="PowerShell">
             <Parameters>
-                <Param Name="Param1" Type="String" MaxLength="5">
+                <Param Name="Param1" Type="String" MaxLength="5" Required="true">
                     <ValidationRule>
                         <RegEx>/^[a-zA-Z]{5}$/</RegEx>
                     </ValidationRule>
@@ -56,7 +146,7 @@
         </Script>
         <Script ID="2" Name="Reboot" SecGroup="RebootADGroup" Description="Reboot Description" Action="PowerShell" Icon="Reboot.png">
             <Parameters>
-                <Param Name="SystemName" Type="String" MaxLength="15">
+                <Param Name="SystemName" Type="String" MaxLength="15" Required="true">
                     <ValidationRule>
                         <RegEx>/^[a-zA-Z]{15}$/</RegEx>
                     </ValidationRule>
@@ -65,7 +155,7 @@
         </Script>
         <Script ID="3" Name="Shutdown" SecGroup="ShutDownADGroup" Description="Shutdown Description" Action="PowerShell" Icon="Shutdown.png">
             <Parameters>
-                <Param Name="SystemName" Type="String" MaxLength="15">
+                <Param Name="SystemName" Type="String" MaxLength="15" Required="true">
                     <ValidationRule>
                         <RegEx>/^[a-zA-Z]{15}$/</RegEx>
                     </ValidationRule>

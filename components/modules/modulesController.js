@@ -1,11 +1,12 @@
 (function () {
     'use strict';
-    var ModulesController = function ($translate, $translatePartialLoader, $scope, modulesFactory, applicationsFactory, $state, $stateParams) {
+    var ModulesController = function ($translate, $translatePartialLoader, $scope, $state, $stateParams, $filter, DUMMY_APP_CONFIG) {
         $translatePartialLoader.addPart('modules');
         $translate.refresh();
+
         $scope.isSideBarClosed = false;
-        $scope.applications = applicationsFactory.getApplications();
-        $scope.modules = modulesFactory.getModulesBaseInfo($stateParams.applicationId);
+        var selectedApplication = $filter('filter')(DUMMY_APP_CONFIG.CoSyMaWebUI.Applications.Application, {Name: $stateParams.applicationId})[0];
+        $scope.modules = selectedApplication.Modules.Module;
         $scope.selectedModule = $scope.modules[0];
         $scope.applicationName = $stateParams.applicationName;
         $scope.$parent.isApplicationView = false;
@@ -15,6 +16,7 @@
                 jQuery('.sidebar li').removeClass('active');
                 clickedListItem.addClass('active');
                 this.$parent.selectedModule = $module;
+                $event.stopPropagation();
             }
         };
     };

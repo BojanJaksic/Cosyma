@@ -1,0 +1,137 @@
+{
+  "CoSyMaWebUI": {
+    "Applications": {
+      "Application": [
+        {
+          "Name": "app.inv.app.name",
+          "SecGroup": "InvAppADGroup",
+          "Icon": "invApp.png",
+          "Description": "app.inv.app.desc",
+          "MobileCapable": "true",
+          "ComputerSelection": {
+            "CanSelectCompNr": "1",
+            "AfterFinishCollapse": "false",
+            "AfterFinishShowOnlySelected": "false"
+          },
+          "Modules": {
+            "Module": [
+              {
+                "Name": "app.general.module.status.name",
+                "Initials": "app.general.module.status.short",
+                "ViewPath": "inventory/status.html",
+                "Icon": "generalModuleStatus.png",
+                "Description": "app.inv.app.module.status.desc"
+              },
+              {
+                "Name": "app.inv.app.module.main.name",
+                "SecGroup": "InvAppMainADGroup",
+                "Initials": "app.inv.app.module.main.short",
+                "ViewPath": "inventory/main.html",
+                "Icon": "moduleInvMain.png",
+                "Description": "app.inv.app.module.main.desc"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "app.soft.mngmt.name",
+          "SecGroup": "SoftMgmtADGroup",
+          "Icon": "softMngmtApp.png",
+          "Description": "app.soft.mngmt.desc",
+          "MobileCapable": "true",
+          "ComputerSelection": [
+            {
+              "CanSelectCompNr": "10",
+              "AfterFinishCollapse": "true",
+              "AfterFinishShowOnlySelected": "true"
+            },
+            {
+              "CanSelectCompNr": "2",
+              "AfterFinishCollapse": "true",
+              "AfterFinishShowOnlySelected": "false"
+            }
+          ],
+          "Modules": {
+            "Module": [
+              {
+                "Name": "app.general.module.status.name",
+                "Initials": "app.general.module.status.short",
+                "ViewPath": "softwareManagement/status.html",
+                "Icon": "generalModuleStatus.png",
+                "Description": "app.soft.mngmt.module.status.desc"
+              },
+              {
+                "Name": "app.soft.mngmt.module.main.name",
+                "SecGroup": "SoftMngmtMainADGroup",
+                "Initials": "app.soft.mngmt.module.main.short",
+                "ViewPath": "softwareManagement/main.html",
+                "Icon": "moduleSoftMngmtMain.png",
+                "Description": "app.soft.mngmt.module.main.desc"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "app.comp.mngmt.name",
+          "SecGroup": "CompMgmtADGroup",
+          "Icon": "compMngmtApp.png",
+          "Description": "app.comp.mngmt.desc",
+          "MobileCapable": "true",
+          "ComputerSelection": {
+            "CanSelectCompNr": "1",
+            "AfterFinishCollapse": "false",
+            "AfterFinishShowOnlySelected": "false"
+          },
+          "Modules": {
+            "Module": [
+              {
+                "Name": "app.general.module.status.name",
+                "Initials": "app.general.module.status.short",
+                "ViewPath": "computerManagement/status.html",
+                "Icon": "generalModuleStatus.png",
+                "Description": "app.comp.mngmt.module.status.desc"
+              },
+              {
+                "Name": "app.comp.mngmt.module.main.name",
+                "SecGroup": "CompMgmtMainADGroup",
+                "ViewPath": "computerManagement/main.html",
+                "Icon": "moduleCompMngmtMain.png",
+                "Description": "app.comp.mngmt.module.main.desc"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "app.wind.maint.name",
+          "SecGroup": "WindMaintADGroup",
+          "Icon": "windMaintApp.png",
+          "Description": "app.wind.maint.desc",
+          "MobileCapable": "false",
+          "ComputerSelection": {
+            "CanSelectCompNr": "30",
+            "AfterFinishCollapse": "true",
+            "AfterFinishShowOnlySelected": "true"
+          },
+          "Modules": {
+            "Module": [
+              {
+                "Name": "app.general.module.status.name",
+                "Initials": "app.general.module.status.short",
+                "ViewPath": "windowsMaintenance/status.html",
+                "Icon": "generalModuleStatus.png",
+                "Description": "app.wind.maint.module.status.desc"
+              },
+              {
+                "Name": "app.wind.maint.module.main.name",
+                "SecGroup": "WindMaintMainADGroup",
+                "ViewPath": "windowsMaintenance/main.html",
+                "Icon": "moduleWindMaintMain.png",
+                "Description": "app.wind.maint.module.main.desc"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,3 +1,10 @@
 {
-  "APPLICATIONS_TITLE": "Applications"
+  "app.inv.app.name": "Inventory Solution",
+  "app.inv.app.desc": "Inventory Solution",
+  "app.soft.mngmt.name": "Software Management Solution",
+  "app.soft.mngmt.desc": "Software Management Solution",
+  "app.comp.mngmt.name": "Computer Management Solution",
+  "app.comp.mngmt.desc": "Computer Management Solution",
+  "app.wind.maint.name": "Windows Maintenance Solution",
+  "app.wind.maint.desc": "Windows Maintenance Solution"
 }
