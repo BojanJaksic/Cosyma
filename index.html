@@ -25,7 +25,6 @@
             </ce-app>
         </ce-navigation>
     </span>
-
     <span>
         <span ng-show="!isApplicationView" ng-controller="ComputerController">
             <ce-sidemenu ce-config="{label: '+', color: '#fda523'}">
@@ -33,11 +32,9 @@
                 <computer-side-element ng-repeat="computer in computers" computer-data="computer"></computer-side-element>
             </ce-sidemenu>
         </span>
-
         <span ng-show="!isApplicationView">
             <ui-breadcrumbs displayname-property="crumbDisplayName" template-url="shared/breadcrumbs/uiBreadcrumbs.tpl.html"></ui-breadcrumbs>
         </span>
-
         <div ui-view="main"></div>
     </span>
 </div>
@@ -61,7 +58,6 @@
 <script src="app.js"></script>
 <script src="shared/navigation/navigationController.js"></script>
 <script src="components/applications/applicationsController.js"></script>
-<script src="components/modules/modulesFactory.js"></script>
 <script src="components/modules/modulesController.js"></script>
 <script src="shared/computer/computerFactory.js"></script>
 <script src="shared/computer/computerController.js"></script>

@@ -3,6 +3,7 @@
     "Applications": {
       "Application": [
         {
+          "Id": "1",
           "Name": "app.inv.app.name",
           "SecGroup": "InvAppADGroup",
           "Icon": "invApp.png",
@@ -34,6 +35,7 @@
           }
         },
         {
+          "Id": "2",
           "Name": "app.soft.mngmt.name",
           "SecGroup": "SoftMgmtADGroup",
           "Icon": "softMngmtApp.png",
@@ -72,6 +74,7 @@
           }
         },
         {
+          "Id": "3",
           "Name": "app.comp.mngmt.name",
           "SecGroup": "CompMgmtADGroup",
           "Icon": "compMngmtApp.png",
@@ -102,6 +105,7 @@
           }
         },
         {
+          "Id": "4",
           "Name": "app.wind.maint.name",
           "SecGroup": "WindMaintADGroup",
           "Icon": "windMaintApp.png",

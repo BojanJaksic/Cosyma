@@ -20,7 +20,7 @@
         <!-- Images -->
             <!-- invApp.png -->
             <!-- moduleInvMain.png -->
-        <Application Id="" Name="app.inv.app.name" SecGroup="InvAppADGroup" Icon="invApp.png" Description="app.inv.app.desc" MobileCapable="true">
+        <Application Id="1" Name="app.inv.app.name" SecGroup="InvAppADGroup" Icon="invApp.png" Description="app.inv.app.desc" MobileCapable="true">
             <!-- CanSelectCompNr: 0= cannot select at all; 1=can select exactly one; x(any other number)=max number of selectable computers -->
             <!-- AfterFinishCollapse: After finish btn is clicked collapse search computer control -->
             <!-- AfterFinishShowOnlySelected: After finish remove from the list, computers that are not selected -->
@@ -49,7 +49,7 @@
         <!-- Images -->
             <!-- softMngmtApp.png -->
             <!-- moduleSoftMngmtMain.png -->
-        <Application Name="app.soft.mngmt.name" SecGroup="SoftMgmtADGroup" Icon="softMngmtApp.png" Description="app.soft.mngmt.desc" MobileCapable="true">
+        <Application Id="2" Name="app.soft.mngmt.name" SecGroup="SoftMgmtADGroup" Icon="softMngmtApp.png" Description="app.soft.mngmt.desc" MobileCapable="true">
             <!-- CanSelectCompNr: 0= cannot select at all; 1=can select exactly one; x(any other number)=max number of selectable computers -->
             <!-- AfterFinishCollapse: After finish btn is clicked collapse search computer control -->
             <!-- AfterFinishShowOnlySelected: After finish remove from the list, computers that are not selected -->
@@ -79,7 +79,7 @@
         <!-- Images -->
             <!-- compMngmtApp.png -->
             <!-- moduleCompMngmtMain.png -->
-        <Application Name="app.comp.mngmt.name" SecGroup="CompMgmtADGroup" Icon="compMngmtApp.png" Description="app.comp.mngmt.desc" MobileCapable="true">
+        <Application Id="3" Name="app.comp.mngmt.name" SecGroup="CompMgmtADGroup" Icon="compMngmtApp.png" Description="app.comp.mngmt.desc" MobileCapable="true">
             <!-- CanSelectCompNr: 0= cannot select at all; 1=can select exactly one; x(any other number)=max number of selectable computers -->
             <!-- AfterFinishCollapse: After finish btn is clicked collapse search computer control -->
             <!-- AfterFinishShowOnlySelected: After finish remove from the list, computers that are not selected -->
@@ -109,7 +109,7 @@
         <!-- Images -->
             <!-- windMaintApp.png -->
             <!-- moduleWindMaintMain.png -->
-        <Application Name="app.wind.maint.name" SecGroup="WindMaintADGroup" Icon="windMaintApp.png" Description="app.wind.maint.desc" MobileCapable="false">
+        <Application Id="4" Name="app.wind.maint.name" SecGroup="WindMaintADGroup" Icon="windMaintApp.png" Description="app.wind.maint.desc" MobileCapable="false">
             <!-- CanSelectCompNr: 0= cannot select at all; 1=can select exactly one; x(any other number)=max number of selectable computers -->
             <!-- AfterFinishCollapse: After finish btn is clicked collapse search computer control -->
             <!-- AfterFinishShowOnlySelected: After finish remove from the list, computers that are not selected -->

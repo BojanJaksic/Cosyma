@@ -4,7 +4,6 @@
         $translatePartialLoader.addPart('applications');
         $translate.refresh();
         $scope.$parent.isApplicationView = true;
-        //$scope.applications = applicationsFactory.getApplications();
         $scope.applications = DUMMY_APP_CONFIG.CoSyMaWebUI.Applications.Application;
     };
 
