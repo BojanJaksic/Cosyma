@@ -1,10 +1,10 @@
 (function () {
     'use strict';
-    var ApplicationsController = function ($translate, $translatePartialLoader, $scope, DUMMY_APP_CONFIG) {
+    var ApplicationsController = function ($translate, $translatePartialLoader, $scope, applicationsFactory) {
         $translatePartialLoader.addPart('applications');
         $translate.refresh();
         $scope.$parent.isApplicationView = true;
-        $scope.applications = DUMMY_APP_CONFIG.CoSyMaWebUI.Applications.Application;
+        $scope.applications = applicationsFactory.getApplications();
     };
 
     angular.module('cosymaApp').controller('ApplicationsController', ApplicationsController);

@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    var ComputerController = function ($translate, $translatePartialLoader, $scope, computerFactory) {
+    var ComputerController = function ($translate, $translatePartialLoader, $location, $scope, computerFactory, applicationsFactory) {
         // ----- TRANSLATION -----
         $translatePartialLoader.addPart('computers');
         $translate.refresh();
@@ -18,6 +18,17 @@
                 }
             }
         };
+
+        // set the search config from the application configuration file
+        try {
+            if ($location && $location.$$path) {
+                var selectedAppId = $location.$$path.split('/applications/')[1].substring(0, 1);
+                var selectedApp = applicationsFactory.getApplication(selectedAppId);
+                var appSearchConfig = selectedApp.ComputerSelection;
+            }
+        } catch (e) {
+            console.log('Error getting application search configuration');
+        }
 
         $scope.searchComputers = function(computersSearchValue){
             $scope.isSearchDisabled = true;

@@ -1,11 +1,11 @@
 (function () {
     'use strict';
-    var ModulesController = function ($translate, $translatePartialLoader, $scope, $state, $stateParams, $filter, DUMMY_APP_CONFIG) {
+    var ModulesController = function ($translate, $translatePartialLoader, $scope, $stateParams, $filter, DUMMY_APP_CONFIG) {
         $translatePartialLoader.addPart('modules');
         $translate.refresh();
 
         $scope.isSideBarClosed = false;
-        var selectedApplication = $filter('filter')(DUMMY_APP_CONFIG.CoSyMaWebUI.Applications.Application, {Name: $stateParams.applicationId})[0];
+        var selectedApplication = $filter('filter')(DUMMY_APP_CONFIG.CoSyMaWebUI.Applications.Application, {Id: $stateParams.applicationId})[0];
         $scope.modules = selectedApplication.Modules.Module;
         $scope.selectedModule = $scope.modules[0];
         $scope.applicationName = $stateParams.applicationName;

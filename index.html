@@ -19,7 +19,7 @@
         <ce-navigation ce-config="{title: 'CoSyMa - v1.0.0'}">
             <ce-app class="ce-container" ng-repeat="application in applications">
                 <a ng-click="$parent.$parent.$parent.isNavigationClosed = !$parent.$parent.$parent.isNavigationClosed"
-                   ui-sref="applications.modules({applicationId: application.Name, applicationName: (application.Name | translate)})">
+                   ui-sref="applications.modules({applicationId: application.Id})">
                     <p>{{ application.Name | translate }}</p>
                 </a>
             </ce-app>
@@ -58,6 +58,7 @@
 <script src="app.js"></script>
 <script src="shared/navigation/navigationController.js"></script>
 <script src="components/applications/applicationsController.js"></script>
+<script src="components/applications/applicationsFactory.js"></script>
 <script src="components/modules/modulesController.js"></script>
 <script src="shared/computer/computerFactory.js"></script>
 <script src="shared/computer/computerController.js"></script>

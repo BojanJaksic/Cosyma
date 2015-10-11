@@ -3,12 +3,10 @@
     var current_language = window.navigator.userLanguage || window.navigator.language;
     current_language = current_language.indexOf('en') === 0 ? 'en_EN' : 'de_DE';
 
-    // Create the module
     var dependencies = ['ui.router', 'pascalprecht.translate', 'angular-sidemenu', 'angular-navigation', 'angularUtils.directives.uiBreadcrumbs'];
     var app = angular.module('cosymaApp', dependencies);
-    /*
-    * Load WebUI_Structure.xml and pass it on to the Web Api
-    * */
+    // Load WebUI_Structure.xml and pass it on to the Web Api.
+    // Variable inside resolve property is available as a service, throughout the applications.
     deferredBootstrapper.bootstrap({
         element: document.body,
         module: 'cosymaApp',
@@ -36,10 +34,8 @@
     });
 
     app.config(function ($stateProvider, $urlRouterProvider, $translateProvider, $translatePartialLoaderProvider) {
-        /**
-         * Configure the translate provider to load json translation files from the url template.
-         * Observe the server folder structure: 'app/translations/{lang}/{part}.json'
-         */
+        // Configure the translate provider to load json translation files from the url template.
+        // Observe the server folder structure: 'app/translations/{lang}/{part}.json'
         $translateProvider.useLoader('$translatePartialLoader', {
             urlTemplate: 'translations/{lang}/{part}.json'
         });
@@ -61,20 +57,23 @@
                 crumbDisplayName: 'Application'
             })
             .state('applications.modules', {
-                url: '/:applicationName/modules',
+                url: '/:applicationId/modules',
                 views: {
                     'main@': {
                         templateUrl: viewBase + 'modules/modules.html',
                         controller: 'ModulesController'
                     }
                 },
-                params: {
-                    applicationId: null
-                },
-                crumbDisplayName: '{{ appName }}',
+                crumbDisplayName: '{{ appName | translate }}',
                 resolve: {
-                    appName: function($stateParams) {
-                        return $stateParams.applicationName;
+                    appName: function(applicationsFactory, $translate, $stateParams, $translatePartialLoader) {
+                        var app = applicationsFactory.getApplication($stateParams.applicationId);
+                        if (app) {
+                            $translatePartialLoader.addPart('applications');
+                            $translate.refresh();
+                            return app.Name;
+                        }
+                        return null;
                     }
                 }
             });
